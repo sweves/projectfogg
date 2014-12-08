@@ -1,0 +1,15 @@
+{
+  "port": 5000,
+  "auth": {
+    "id": "hello",
+    "pw": "bye"
+  },
+  "db": {
+    "dev": "mongodb://localhost:27017/data",
+    "production": "mongodb://heroku_app31808997:tpj74iv7bc04dvv7hlknojm8pf@ds053080.mongolab.com:53080/heroku_app31808997"
+  },
+  "upload": {
+    "required": ["code", "location", "caption"],
+    "options": ["email", "name"]
+    }
+}

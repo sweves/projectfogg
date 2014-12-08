@@ -1,0 +1,71 @@
+
+<div class="container">
+
+<div class="detailwrapper">
+    <div class="charactercard detail col-sm-4 col-md-4 ">
+		<h3>{{artists[whichItem].name}}</h3>
+		<img ng-src="images/{{artists[whichItem].id}}_tn.jpg" alt="Photo of {{artists[whichItem].name}}" width="100%">
+		<div class="part2">
+		<p>{{artists[whichItem].bio}}</p>
+	</div>
+	</div>
+
+
+	<div class="storyentry col-xs-12 col-sm-8 col-md-8 pull-right" ng-repeat="post in posts">
+		<div class="polaroid">
+			<div class="border">
+				<a class="shadow"><img ng-src="{{post.file}}" width="100%"/></a>
+			</div>
+			<p class="polaroidcaption"><span class="smalldate"><mydate>{{post.timestamp | date:'M/d  '}}</mydate></span> {{post.caption}}</p>
+			<p class="polaroidlocation"><span class="iconicfill-map-pin-alt"></span> {{post.location}}</p>
+		</div>
+	</div>
+
+</div>
+
+</div>
+<a ng-click="gotoElement('top')"><div class="scroller"></div></a>
+
+<div class="theend"></div>
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container">
+
+
+
+		<br><br>
+
+<section class="artistinfo">
+
+	<div ng-model="artists">
+
+
+		<div class="charactercard .col-md-3">
+			<h3>{{artists[whichItem].name}}</h3>
+			<img ng-src="images/{{artists[whichItem].id}}_tn.jpg" alt="Photo of {{artists[whichItem].name}}" width="100%">
+			<div class="part2"><p>{{artists[whichItem].bio}}</p></div>
+		</div>
+		</div>
+
+
+			<div ng-repeat="post in posts" class=".col-md-9 .col-md-push-3">
+					<pre>
+						<img ng-src="{{post.file}}" width="100%"/>
+						<h4>{{post.caption}}</h4>
+						<p><span class="iconicfill-map-pin-alt"></span> {{post.location}}</p>
+					</pre>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+</div>
+ -->

@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="intro">
+    <h1>Look what you found!</h1>
+    <p>You found one of the many jars belonging to Project Fogg! Here's the fun part - the part where you become part of someone's journey! Follow the steps below to upload your story. Feel free to post as many times as you want, just don't forget to pass your character along!</p>
+  </div>
+    <div class="allsteps">
+      <div class="step col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+      <img src="/images/step1.png" width="100%"/>
+      <h3>STEP 1: Take Picture</h3>
+      <p>Take a picture of your figure doing something fun or being a part of your every day.</p>
+    </div>
+    <div class="step col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+      <img src="/images/step2.png" width="100%"/>
+      <h3>STEP 2: Go to Site</h3>
+      <p>LWhen you are ready to post your picture go to site (you're here already - good job!)</p>
+    </div>
+
+    <div class="step col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+      <img src="/images/step3.png" width="100%"/>
+      <h3>STEP 3: Post Story</h3>
+      <p>Look inside your jar lid for the code unique to your character to upload your story.</p>
+    </div>
+
+    <div class="step col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+      <img src="/images/step4.png" width="100%"/>
+      <h3>STEP 4: Pass Along</h3>
+      <p>Once you are done pass along the jar to a friend....or a stranger! Try leaving it somewhere in public too - anything you can think of to continue the story!</p>
+    </div>
+    <p>&nbsp;</p>
+  </div>
+
+
+  <div class="uploadentryform col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+     <h1>Upload Story</h1>
+     <div class="formwrapper">
+    <div class="input-group">
+      <form enctype="multipart/form-data" name="form" method="post" ng-submit="sendPost()">
+        <p ng-repeat="item in upload.required">
+          <input type="text" name="{{item}}" class="form-control" placeholder="{{item}}" required />
+        </p>
+        <p ng-repeat="item in upload.options">
+          <input type="text" name="{{item}}" class="form-control" placeholder="{{item}} (optional)" />
+        </p>
+        <p>
+          <input type="file" name="image" class="form-control" id="photo" accept="image/*;capture=camera" required />
+        </p>
+        <input class="btn btn-default storybutton" type="submit" value="Upload" />
+      </form>
+      <pre ng-show="results"><!-- {{ results | json }} -->Success! </pre>
+    </div>
+  </div>
+</div>
+</div>
+<div class="theend"></div>
+
+
+<!--       <div class="step col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+      <img src="/images/up2.svg" width="100%"/>
+      <h3>STEP 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae auctor risus. Fusce ut magna commodo, ornare mauris ut, bibendum magna.</p>
+    </div>
+
+     -->

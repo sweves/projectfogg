@@ -1,0 +1,30 @@
+<html ng-app="app">
+<body ng-controller="appController">
+<style>
+  button {margin: .5em;background: white;}
+  button.active {background: yellow;}</style>
+<div ng-if="users">
+  <button ng-repeat="user in users" ng-click="filter(user)" ng-class="{active:userName === user.name}">{{user.name}}</button>
+</div>
+<pre>{{ results | json }}</pre>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+<script>
+angular.module('app', []).controller('appController', ['$scope', '$http', function($scope, $http) {
+  $http.get('/json').success(function(e) {
+    $scope.users = e.users;
+    $scope.users.unshift({id: 'all', name: 'All'});
+    $scope.filter($scope.users[0]);
+  });
+  $scope.filter = function(dat) {
+    if(dat && dat.id) {
+      $scope.userName = dat.name;
+      $http.get('/json/' + dat.id).success(function(e) {
+        $scope.results = e.results;
+      });
+
+    }
+  };
+}]);
+</script>
+</body>
+</html>

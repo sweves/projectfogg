@@ -1,0 +1,46 @@
+<style>
+table,td {border: solid black 1px;}
+table { margin: 20px 0;}
+td { padding: .5em;}
+img {max-width: 100px;max-height: 100px;}
+</style>
+<a href="/admin">All</a>
+{{#each data}}
+&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/admin/user/{{id}}">{{name}}</a>
+{{/each}}
+<form action="javascript:check()">
+<table>
+<tr>
+<td></td>
+<td>name</td>
+{{#each config.upload.options}}
+  <td>{{.}}</td>
+{{/each}}
+<td>timestamp</td>
+<td>image</td>
+</tr>
+{{#each results}}
+<tr>
+  <td><input type="checkbox" name="id" value="{{_id}}" /></td>
+  <td>{{name}}</td>
+  <td>{{email}}</td>
+  <td>{{location}}</td>
+  <td>{{caption}}</td>
+  <td>{{timestamp}}</td>
+  <td><img src="{{file}}"></td>
+</tr>
+{{/each}}
+</table>
+<input type="submit" value="remove" />
+</form>
+<script>
+function check() {
+  var items = [], els = document.forms[0].id;
+  for(var i = 0; i < els.length; i ++) {
+    if(els[i].checked) items.push(els[i].value);
+  }
+  if(items.length > 0) {
+    window.location.href = '/admin/remove/' + items.join('|')
+  }
+}
+</script>

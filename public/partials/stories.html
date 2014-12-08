@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="intro">
+    <h1>Stories</h1>
+    <p>Here you will find all current active stories. Right now these are limited to figures created and sent out by us, if you are interested in starting a story of your own do not hesitate to get in touch! The goal is to have as many ongoing stories as we possibly can.</p><br><br>
+  </div>
+  
+      <div class="charactercard col-xs-12 col-sm-6 col-md-4 col-lg-4 " ng-repeat="item in artists">
+			<h3>{{item.name}}</h3>
+			<img ng-src="images/{{item.id}}_tn.jpg" alt="Photo of {{item.name}}" class ="profiletn">
+			<div class="part2">
+				<p>{{item.bio}}</p>
+				<a href="#/details/{{artists.indexOf(item)}}">
+				<center><button class="btn btn-default storybutton" ng-click="loadUpload()"> VIEW STORY >></button></center>
+			</a>
+			</div>
+    	</div>
+
+    	
+    
+
+    <p>&nbsp;</p>
+
+
+
+</div>
+
+<div class="theend"></div>

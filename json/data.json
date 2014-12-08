@@ -1,0 +1,37 @@
+[
+	  {
+	  	"id":"bbaldrati2014",
+	  	"code": "0988",
+	    "name":"Breno Baldrati",
+	    "age":"24",
+	    "bio":"A former journalist in Brazil, and after a stint in Colorado for grad school, Breno currently lives in San Francisco pursuing his career as a coder and designer. While living his life to full Ron Swanson standards Breno also enjoys cooking with is sous vide and beating pretty much everyone at ping pong."
+	  },
+	  {
+	  	"id":"akim2014",
+	  	"code": "8761",
+	    "name":"Albert Kim",
+	    "age":"24",
+	    "bio":"After living, working, and going to grad school in New York Albert is now back in his homeland of San Francisco. Former painter and studio artist for Jeff Koons Albert enjoys using technology to experiment with his long arts background. In between projects you can generally find Albert trying to'tek et ease'"
+	  },
+	  {
+	  	"id":"swever2014",
+	  	"code": "1357",
+	    "name":"Sarah Wever",
+	    "age":"24",
+	    "bio":"Originally from Indiana, Sarah is a midwesterner at heart. After an extended stint in New York for grad school Sarah is now living in San Francisco where she works for AKQA. Between work and not trying that hard to hide her Taylor Swift obsession, Sarah enjoys breaking things then making things using any medium."
+	  },
+	  {
+	  	"id":"ldizon2014",
+	  	"code": "9483",
+	    "name":"Liz Dizon",
+	    "age":"24",
+	    "bio":"In a previous life, Liz was fighting fires in data centers and playing god in 3D virtual worlds. Today she makes digital artifacts for brands you have heard of in party-sunny San Francisco. Liz is often preoccupied with yoga, craft cocktails, and narrowing the gap between technology and humanity."
+	  },
+	  {
+	  	"id":"ndoering2014",
+	  	"code": "2443",
+	    "name":"Nick Doering",
+	    "age":"24",
+	    "bio":"After leaving his homeland of San Diego Nick is currently working as a creative technologist in San Francisco where he will stay until returning to finish his studies in Vancouver, ay. Nick enjoys spending his free time coding in java instead of sleeping and rocking his man bun."
+	  }
+]
