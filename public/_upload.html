@@ -9,18 +9,49 @@
     {{item}}&nbsp;&nbsp;<input type="text" name="{{item}}" />
   </p>
   <p>
-    <input type="file" name="image" id="photo" accept="image/*;capture=camera" required /><br/><red>required</red>
+    <input type="file" name="image" id="photo" accept="image/*;capture=camera" onchange="angular.element(this).scope().fileNameChanged(this)" required /><br/><red>required</red>
+    <div ng-if="previewUrl">
+      <img ng-src="{{previewUrl}}" />
+    </div>
   </p>
+  <input type="hidden" id="avatar" name="file" value="" />
   <input type="submit" value="Upload" />
 </form>
 <pre>{{ results | json }}</pre>
 
+<script type="text/javascript" src="/lib/s3upload.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
 <script>
 angular.module('app', []).controller('appController', ['$scope', '$http', function($scope, $http) {
   $http.get('/json').success(function(e) {
     $scope.upload = e.upload;
   });
+  var s3_upload = function(file) {
+    var s3upload = new S3Upload({
+      s3_object_name: 'photo' + (+ new Date()) + file.name,
+      file_dom_selector: 'photo',
+      s3_sign_put_url: '/sign_s3',
+      onProgress: function(percent, message) {
+        console.log('Upload progress: ' + percent + '% ' + message);
+      },
+      onFinishS3Put: function(public_url) {
+        console.log('Upload completed. Uploaded to: '+ public_url);
+        $scope.previewUrl = public_url;
+        avatar.value = public_url;
+        $scope.$apply();
+      },
+      onError: function(status) {
+        status_elem.innerHTML = 'Upload error: ' + status;
+      }
+    });
+  };
+  $scope.fileNameChanged = function(e) {
+    var file = e.files[0],
+      type = file.type.split('/');
+    console.log(file, type);
+    if(type[0] === 'image') s3_upload(file);
+    else alert('Please upload image only');
+  };
   $scope.sendPost = function() {
     var formData = new FormData(document.form);
     $scope.results = undefined;
