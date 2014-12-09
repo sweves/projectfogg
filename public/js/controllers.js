@@ -74,6 +74,32 @@ stories.controller('UploadCtrl', ['$scope', '$http', '$compile', function($scope
     $scope.artists = data.users;
     $scope.upload = data.upload;
   });
+  var s3_upload = function(file) {
+    var s3upload = new S3Upload({
+      s3_object_name: 'photo' + (+ new Date()) + file.name,
+      file_dom_selector: 'photo',
+      s3_sign_put_url: '/sign_s3',
+      onProgress: function(percent, message) {
+        console.log('Upload progress: ' + percent + '% ' + message);
+      },
+      onFinishS3Put: function(public_url) {
+        console.log('Upload completed. Uploaded to: '+ public_url);
+        $scope.previewUrl = public_url;
+        avatar.value = public_url;
+        $scope.$apply();
+      },
+      onError: function(status) {
+        status_elem.innerHTML = 'Upload error: ' + status;
+      }
+    });
+  };
+  $scope.fileNameChanged = function(e) {
+    var file = e.files[0],
+      type = file.type.split('/');
+    console.log(file, type);
+    if(type[0] === 'image') s3_upload(file);
+    else alert('Please upload image only');
+  };
   $scope.sendPost = function() {
     var formData = new FormData(document.form);
     $scope.results = undefined;

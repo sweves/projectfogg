@@ -43,8 +43,9 @@
           <input type="text" name="{{item}}" class="form-control" placeholder="{{item}} (optional)" />
         </p>
         <p>
-          <input type="file" name="image" class="form-control" id="photo" accept="image/*;capture=camera" required />
+          <input type="file" name="image" class="form-control" id="photo" accept="image/*;capture=camera" onchange="angular.element(this).scope().fileNameChanged(this)" required />
         </p>
+        <input type="hidden" id="avatar" name="file" value="" />
         <input class="btn btn-default storybutton" type="submit" value="Upload" />
       </form>
       <pre ng-show="results"><!-- {{ results | json }} -->Success! </pre>

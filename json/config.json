@@ -6,7 +6,7 @@
   },
   "db": {
     "dev": "mongodb://localhost:27017/data",
-    "production": "mongodb://heroku_app31808997:tpj74iv7bc04dvv7hlknojm8pf@ds053080.mongolab.com:53080/heroku_app31808997"
+    "production": "mongodb://heroku_app32364557:rtle4rjli8t17encftr1nqfob6@ds061370.mongolab.com:61370/heroku_app32364557"
   },
   "upload": {
     "required": ["code", "location", "caption"],
